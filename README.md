@@ -1,6 +1,6 @@
 # E-Commerce-Operations-Customer-Satisfaction-Analysis
 End-to-end SQL &amp; Power BI analytics dashboard tracking e-commerce logistics and customer satisfaction failures.
-# E-Commerce Operations & Customer Satisfaction Analysis
+
 
 ## 🚀 Project Overview
 An end-to-end data analytics project using an e-commerce dataset of 97K orders. This project extracts, cleans, and structures complex business data to uncover critical operational bottlenecks directly impacting company revenue and customer satisfaction scores.
