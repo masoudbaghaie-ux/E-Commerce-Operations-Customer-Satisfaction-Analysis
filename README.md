@@ -1,50 +1,34 @@
-# E-Commerce-Operations-Customer-Satisfaction-Analysis
-End-to-end SQL &amp; Power BI analytics dashboard tracking e-commerce logistics and customer satisfaction failures.
+# E-Commerce Operations & Logistics Performance Dashboard
 
+## Project Overview
+This project focuses on analyzing an e-commerce operations dataset covering 97K customer orders. The objective was to clean, model, and visualize data across sales, supply chain logistics, and customer reviews to identify operational friction points that erode margins and hurt customer retention.
 
-## 🚀 Project Overview
-An end-to-end data analytics project using an e-commerce dataset of 97K orders. This project extracts, cleans, and structures complex business data to uncover critical operational bottlenecks directly impacting company revenue and customer satisfaction scores.
-
-## 🛠️ Tech Stack
-* **Database Engine:** PostgreSQL (Data aggregation, schema joins, and advanced window functions/tie-breaker metrics)
-* **BI Platform:** Power BI (Data modeling, cross-filtering, and executive-level interactive visualization)
-
-## 📊 Core Dashboards & Layout
-## 🔍 Comprehensive Dashboard Breakdown & Analytical Insights
-
-### 📊 Page 1: Sales & Revenue Performance
-This view serves as the financial and transactional baseline for executive stakeholders, tracking top-line growth metrics across the entire product spectrum.
-
-* **Asset Reference:** `dashboard_page_1_sales.png`
-* **Key Visual Analysis:**
-  * **Top 10 Product Categories by Revenue:** Focuses on value generation. `Health Beauty` stands out as our absolute market leader, generating the highest share of the company's total $13.22M revenue pipeline.
-  * **Order Volume Distribution (Top 5):** Establishes velocity. Even though `Health Beauty` leads in raw dollar revenue, `Bed Bath Table` dominates checkout volume, capturing 24.22% of all orders among our top five high-velocity categories.
-  * **Order Volume vs. Total Freight Expenses (Combo Chart):** This dual-axis visual exposes hidden margin erosion. Notice the trend change around `Furniture Decor`—its line for freight costs spikes dramatically relative to its lower order volume column. This highlights that bulky, low-density products are disproportionately consuming our logistics budget.
+## Tech Stack & Data Architecture
+* **Database Management:** PostgreSQL (Raw data cleaning, primary/foreign key mapping, and custom SQL views)
+* **Business Intelligence:** Power BI Desktop (Star schema data modeling, DAX measures, and interactive reporting)
 
 ---
 
-### 🚚 Page 2: Logistics Efficiency & Shipping Analysis
-Fulfillment delays are a primary risk factor for customer churn. This page acts as an operational health assessment to isolate carrier and category-specific bottlenecks.
+## Dashboard Breakdown & Core Insights
 
-* **Asset Reference:** `dashboard_page_2_logistics.png`
-* **Key Visual Analysis:**
-  * **Top 10 Longest Delivery Delays:** Isolates extreme fulfillment lag. `Office Furniture` averages a massive 20-day delivery cycle, severely underperforming compared to the company-wide average baseline of 11.42 days.
-  * **Actual Delivery Time vs. Promised Buffer Time (Combo Chart):** Maps supply chain resilience. The dark blue line tracking "Days Ahead of Schedule" plummets sharply for `Furniture Mattress And Upholstery`. This tells us that while we are still technically meeting our customer-facing delivery estimates, the operational safety buffer is thinnest here, leaving zero margin for carrier errors.
+### 1. Sales & Revenue Performance
+* **Asset:** `dashboard_page_1_sales.png`
+* **Analysis:** This view establishes our top-line business baseline ($13.22M in total revenue across 97K orders). While `Health Beauty` serves as the highest grossing revenue category, the volume distribution tells a different story: `Bed Bath Table` dominates transaction frequency, capturing 24.22% of total orders among top-performing segments. 
+* **Operational Bottleneck:** The dual-axis combo chart compares order volumes directly against freight expenses. A clear operational mismatch occurs at `Furniture Decor`—its freight costs spike disproportionately relative to its transaction volume, indicating that bulky items are heavily driving up fulfillment costs.
+
+### 2. Logistics Efficiency & Shipping Analysis
+* **Asset:** `dashboard_page_2_logistics.png`
+* **Analysis:** Delivery delays are a leading cause of customer dissatisfaction. The company average delivery time sits at 11.42 days, but certain categories severely lag. `Office Furniture` is the worst operational bottleneck, taking an average of 20 days to reach customers.
+* **Risk Factor:** The line chart tracks our safety cushion ("Days Ahead of Schedule"). The sharp drop for `Furniture Mattress And Upholstery` indicates that while we are technically meeting customer delivery promises, our fulfillment window has zero margin for carrier or warehouse errors.
+
+### 3. Customer Feedback & Quality Control
+* **Asset:** `dashboard_page_3_feedback.png`
+* **Analysis:** This dashboard connects logistics performance directly to customer sentiment. By isolating the bottom 10 reviewed categories, we find critical rating drops. 
+* **The Core Data Link:** The performance matrix table provides concrete evidence of our core issue. Look at `Diapers And Hygiene`—it holds an alarming average review score of 2.95★. Cross-referencing this with its 11.00 average delivery days shows a direct tie between delivery delays and drop-offs in customer review ratings, rather than an issue with product quality.
 
 ---
 
-### ⭐ Page 3: Customer Feedback & Quality Control
-This dashboard closes the loop by correlating operational performance directly with customer satisfaction. It uncovers exactly *why* certain product sectors underperform.
-
-* **Asset Reference:** `dashboard_page_3_feedback.png`
-* **Key Visual Analysis:**
-  * **Bottom 10 Lowest Reviewed Categories:** Flags poor-performing segments. `Security And Services` is a critical focus area, anchoring the entire dataset with the lowest review trend line.
-  * **Performance Matrix Table (The Operational "Smoking Gun"):** This granular table bridges the gap between shipping delays and brand loyalty. Look at the highlighted row for `Diapers And Hygiene`—it holds an unacceptable average review score of 2.95★. Because the matrix tracks this alongside its 11.00-day delivery latency, it provides clear, data-driven proof that shipping bottlenecks, rather than product quality, are driving down customer satisfaction.
-
----
-
-## 💡 Executive Summary & Strategic Roadmap
-Based on this multi-layered analysis, the business should immediately prioritize three core actions:
-1. **Re-engineer Heavy Freight Logistics:** Transition bulky items (`Office Furniture`, `Furniture Decor`) to alternative shipping networks to cut down the current 20-day latency period.
-2. **Implement Dynamic Buffer Calculations:** Update customer checkout estimates for items with thin fulfillment margins to prevent unmet expectations from damaging review scores.
-3. **Perform Vendor Audits:** Investigate the underlying product quality or service parameters for the `Security And Services` category before committing additional marketing spend to it.
+## Actionable Recommendations
+1. **Logistics Restructuring:** Renegotiate carrier agreements or shift fulfillment centers specifically for heavy categories (`Office Furniture` and `Furniture Decor`) to reduce the current 20-day delivery timeline toward the 11-day company baseline.
+2. **Dynamic Delivery Expectations:** Update checkout logic to provide realistic, dynamic shipping estimates for bulky goods based on historic fulfillment times. Managing customer expectations upfront will protect review scores from dipping due to unexpected delays.
+3. **Category Audit:** Investigate product quality and vendor reliability for the `Security And Services` line immediately, as it sits at the absolute bottom of customer satisfaction despite low order volumes.
